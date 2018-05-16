@@ -1,6 +1,6 @@
-import { Aplicativo } from './../aplicativo';
 import { Component, OnInit } from '@angular/core';
-import { AplicativoService } from '../aplicativo.service';
+import { AplicativoService } from '../_services/aplicativo.service';
+import { Aplicativo } from '../_classes/aplicativo';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,8 +8,8 @@ import { AplicativoService } from '../aplicativo.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  
-  aplicativos: Aplicativo[] = [];
+
+  aplicativos: Array<Aplicativo> = []; // Declarações
 
   constructor(private aplicativoService: AplicativoService) { }
 

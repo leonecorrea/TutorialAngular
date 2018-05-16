@@ -4,20 +4,16 @@ import { HttpClientModule }    from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
+// Services
+import { AplicativoService } from './_services/aplicativo.service';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AplicativosComponent } from './aplicativos/aplicativos.component';
-import { AplicativoService } from './aplicativo.service';
-import { AplicativoDetalheComponent } from './aplicativo-detalhe/aplicativo-detalhe.component';
-import { InMemoryDataService } from './in-memory-data.service';
+import { InMemoryDataService } from './_services/in-memory-data.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    AplicativosComponent,
-    AplicativoDetalheComponent
   ],
   imports: [
     BrowserModule,

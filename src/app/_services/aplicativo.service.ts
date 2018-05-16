@@ -1,4 +1,4 @@
-import { Aplicativo } from './aplicativo';
+import { Aplicativo } from '../_classes/Aplicativo';
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
@@ -14,6 +14,7 @@ const httpOptions = {
 export class AplicativoService {
 
   private aplicativosUrl = 'api/aplicativo'; // Url da api
+  private logs: Array<any> = [];
 
   constructor(
     private http: HttpClient
@@ -21,12 +22,7 @@ export class AplicativoService {
 
   /** Get aplicativos do servidor */
   getAplicativos(): Observable<Aplicativo[]> {
-    return this.http.get<Aplicativo[]>(this.aplicativosUrl)
-      // .pipe(
-      //   tap(data => console.log(data)),
-      //   catchError()
-      // )
-      ;
+    return this.http.get<Aplicativo[]>(this.aplicativosUrl);
   }
 
   /** Get aplicativo por id */
@@ -36,7 +32,8 @@ export class AplicativoService {
   }
 
   /** Mensagem de log */
-  private log(mensagem: string){
-
+  private log(mensagem: string) {
+    this.logs.push({ mensagem });
+    console.log(this.logs);
   }
 }
